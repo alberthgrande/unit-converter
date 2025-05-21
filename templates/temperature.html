@@ -28,11 +28,11 @@
             <div class="form-group">
                 <label>
                     Temperature to Convert from <br />
-                    <select name="from_unit" required>
+                    <select name="from_temperature" required>
                         <option selected disabled>Select to Convert from</option>
-{#                        {% for key, value in convert_length.items() %}#}
-{#                            <option value="{{ key }}">{{ value }}</option>#}
-{#                        {% endfor %}#}
+                        {% for key, value in select_temperature.items() %}
+                            <option value="{{ key }}">{{ value.capitalize() }}</option>
+                        {% endfor %}
                     </select>
                 </label>
             </div>
@@ -40,11 +40,11 @@
             <div class="form-group">
                 <label>
                     Temperature to Convert to  <br />
-                    <select name="to_unit" required>
+                    <select name="to_temperature" required>
                         <option selected disabled>Select to Convert to</option>
-{#                        {% for key, value in convert_length.items() %}#}
-{#                            <option value="{{ key }}">{{ value }}</option>#}
-{#                        {% endfor %}#}
+                        {% for key, value in select_temperature.items() %}
+                            <option value="{{ key }}">{{ value.capitalize() }}</option>
+                        {% endfor %}
                     </select>
                 </label>
             </div>
@@ -52,14 +52,14 @@
             <button type="submit">Convert</button>
         </form>
 
-{#        {% if results %}#}
-{#            <div class="result">#}
-{#                <p>{{ results }}</p>#}
-{#                <form method="GET">#}
-{#                    <button type="submit">Reset</button>#}
-{#                </form>#}
-{#            </div>#}
-{#        {% endif %}#}
+        {% if results %}
+            <div class="result">
+                <p>{{ results }}</p>
+                <form method="GET">
+                    <button type="submit">Reset</button>
+                </form>
+            </div>
+        {% endif %}
    </div>
 </body>
 </html>

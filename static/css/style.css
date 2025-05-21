@@ -50,3 +50,14 @@
     padding: 1rem;
     width: 100%;
   }
+
+  nav a {
+    text-align: left;
+    text-decoration: none;
+    margin: 0 1rem;
+    color: black;
+  }
+
+  nav a:is(:hover :active) {
+    color: #333333;
+  }

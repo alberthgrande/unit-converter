@@ -1,0 +1,7 @@
+/.venv
+/__pycache__
+/routes/__pycache__
+/.idea
+__pycache__
+routes/__pycache__
+.idea

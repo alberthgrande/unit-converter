@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit Converter</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+   <div class="container">
+        <h1>Unit Converter</h1>
+
+        <nav>
+            <a href="{{ url_for('length.length') }}">Length</a>
+            <a href="{{ url_for('temperature.temperature') }}">Temperature</a>
+            <a href="{{ url_for('weight.weight') }}">Weight</a>
+        </nav>
+
+
+        <form method="POST">
+            <div class="form-group">
+                <label>
+                    Enter the length to convert <br />
+                    <input type="number" step="any" name="length_value" required>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    Unit to Convert from <br />
+                    <select name="from_unit" required>
+                        <option selected disabled>Select to Convert from</option>
+                        {% for key, value in select_length.items() %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    Unit to Convert to  <br />
+                    <select name="to_unit" required>
+                        <option selected disabled>Select to Convert to</option>
+                        {% for key, value in select_length.items() %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if results %}
+            <div class="result">
+                <p>{{ results }}</p>
+                <form method="GET">
+                    <button type="submit">Reset</button>
+                </form>
+            </div>
+        {% endif %}
+   </div>
+</body>
+</html>
